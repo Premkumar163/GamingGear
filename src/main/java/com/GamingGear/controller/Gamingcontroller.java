@@ -1,7 +1,10 @@
 package com.GamingGear.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -23,6 +26,11 @@ public class Gamingcontroller {
 	public Forminputs save(@RequestBody Forminputs g) {
 		return gamingservice.savedata(g);
 		
+	}
+	
+	@GetMapping("/all")
+	public List<Forminputs> get() {
+		return gamingservice.dataget();
 	}
 	
 }
