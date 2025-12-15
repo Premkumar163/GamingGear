@@ -1,36 +1,30 @@
 package com.GamingGear.controller;
 
-import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
+import com.GamingGear.dto.LoginRequest;
+import com.GamingGear.dto.RegisterRequst;
+import com.GamingGear.service.AuthService;
 
-import com.GamingGear.model.Forminputs;
-import com.GamingGear.service.Gamingservice;
+import lombok.RequiredArgsConstructor;
 
 @RestController
-@RequestMapping("/api")
-@CrossOrigin(origins = "http://localhost:5173")
+@RequestMapping("/auth")
+@RequiredArgsConstructor
 public class Gamingcontroller {
-
+      
 	@Autowired
-	Gamingservice gamingservice;
+     AuthService authService;  // final + constructor injection
 
-	@PostMapping("/save")
-	public Forminputs save(@RequestBody Forminputs g) {
-		return gamingservice.savedata(g);
+    @PostMapping("/register")
+    public String register(@RequestBody RegisterRequst requst) {
+        return authService.register(requst);
+    }
+    
+    @PostMapping("/login")
+    public String login(@RequestBody LoginRequest req) {
+    	return authService.login(req);
 		
 	}
-	
-	@GetMapping("/all")
-	public List<Forminputs> get() {
-		return gamingservice.dataget();
-	}
-	
 }
