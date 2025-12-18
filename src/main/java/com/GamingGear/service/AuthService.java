@@ -11,7 +11,7 @@ import com.GamingGear.dto.LoginRequest;
 import com.GamingGear.dto.RegisterRequst;
 import com.GamingGear.model.Forminputs;
 import com.GamingGear.repository.GamingRepository;
-import com.GamingGear.util.JwtUtil;
+import com.GamingGear.security.JwtUtil;
 
 import lombok.RequiredArgsConstructor;
 
@@ -23,6 +23,9 @@ public class AuthService {
      GamingRepository gamingRepository;
     @Autowired
 	 PasswordEncoder passwordEncoder;
+    
+    @Autowired
+    JwtUtil jwtUtil;
 
     public String register(RegisterRequst req) {
     	
@@ -42,6 +45,7 @@ public class AuthService {
 
         return "Register successful";
     }
+    
     public String login(LoginRequest req) {
 
         Forminputs forminputs = gamingRepository.findByEmail(req.getEmail())
@@ -51,7 +55,7 @@ public class AuthService {
             throw new RuntimeException("Invalid Password");
         }
 
-        return "Login sucessfull";
+        return jwtUtil.generateToken(forminputs.getEmail());
     }
 
     

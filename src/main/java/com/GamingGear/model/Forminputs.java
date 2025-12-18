@@ -26,7 +26,7 @@ public class Forminputs {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	
-	@Column(nullable = false,unique = true)
+	@Column(nullable = true,unique = true)
 	private	String username;
 	
 	@Column(nullable = false,unique = true)

@@ -8,11 +8,13 @@ import com.GamingGear.model.Forminputs;
 
 public interface GamingRepository extends JpaRepository<Forminputs, Long> {
 
-	Optional<Forminputs> findByUsername(String username);
-
-	Optional<Forminputs> findByEmail(String email);
-
-	Optional<Forminputs> findByMobileno(String mobileno);
+	 Optional<Forminputs> findByEmailOrMobilenoOrUsername(
+	            String email,
+	            String mobileno,
+	            String username
+	    );
+	 
+	  Optional<Forminputs> findByEmail(String email);
 
 	boolean existsByEmail(String email);
 }
