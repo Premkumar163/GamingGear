@@ -1,6 +1,6 @@
 package com.GamingGear.model;
 
-import jakarta.persistence.Column;
+import jakarta.persistence.*;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -12,13 +12,13 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-@Entity
 @Getter
 @Setter
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-@Table(name = "reginputs")
+@Entity
+@Table(name = "userdoc")
 public class Forminputs {
 
 
@@ -27,18 +27,25 @@ public class Forminputs {
 	private Long id;
 	
 	@Column(nullable = true,unique = true)
-	private	String username;
+	private String username;
 	
 	@Column(nullable = false,unique = true)
 	private	String email;
 	
 	@Column(nullable = true,unique = true)
-	private	String mobileno;
+	private String mobileno;
 	
-	@Column(nullable = true)
+	@Column(nullable = false)
 	private	String pass;
+	
+	private boolean emailVerified = false;
+	private boolean phoneVerified= false;
+	
+	private String Status = "PENDING"; // PENDING or A
 
 	
+	
 
+	
 	
 }

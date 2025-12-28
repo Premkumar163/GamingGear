@@ -15,23 +15,22 @@ import lombok.RequiredArgsConstructor;
 @RequestMapping("/auth")
 @RequiredArgsConstructor
 public class Gamingcontroller {
-      
-	@Autowired
-     AuthService authService;  // final + constructor injection
-	
+
 	@Autowired
 	GoogleAuthService googleAuthService;
-
-    @PostMapping("/register")
-    public String register(@RequestBody RegisterRequst requst) {
-        return authService.register(requst);
-    }
+    private final AuthService authService;
     
+    
+//
+//    @PostMapping("/register")
+//    public String register(@RequestBody RegisterRequst request) {
+//        return authService.register(request);
+//    }
+
     @PostMapping("/login")
     public String login(@RequestBody LoginRequest req) {
-    	return authService.login(req);
-		
-	}
+        return authService.login(req);
+    }
     
     @PostMapping("/google")
     public String googleLogin(@RequestBody GoogleLoginRequest req) {
@@ -39,4 +38,8 @@ public class Gamingcontroller {
 		
 	}
     
+    @GetMapping("/ping")
+    public String ping() {
+        return "PING OK";
+    }
 }

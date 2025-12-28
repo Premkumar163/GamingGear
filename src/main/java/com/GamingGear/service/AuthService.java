@@ -27,24 +27,24 @@ public class AuthService {
     @Autowired
     JwtUtil jwtUtil;
 
-    public String register(RegisterRequst req) {
-    	
-    	if(gamingRepository.existsByEmail(req.getEmail())) {
-    		return "Email already registered";
-    	}
-                
-
-        Forminputs forminputs = Forminputs.builder()
-                .username(req.getUsername())
-                .email(req.getEmail())
-                .pass(passwordEncoder.encode(req.getPass()))
-                .mobileno(req.getMobileno())
-                .build();
-
-        gamingRepository.save(forminputs);
-
-        return "Register successful";
-    }
+//    public String register(RegisterRequst req) {
+//    	
+//    	if(gamingRepository.existsByEmail(req.getEmail())) {
+//    		return "Email already registered";
+//    	}
+//                
+//
+//        Forminputs forminputs = Forminputs.builder()
+//                .username(req.getUsername())
+//                .email(req.getEmail())
+//                .pass(passwordEncoder.encode(req.getPass()))
+//                .mobileno(req.getMobileno())
+//                .build();
+//
+//        gamingRepository.save(forminputs);
+//
+//        return "Register successful";
+//    }
     
     public String login(LoginRequest req) {
 

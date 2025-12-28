@@ -10,7 +10,7 @@ public class GamingGearsApplication {
 	public static void main(String[] args) 
 	{
 		SpringApplication.run(GamingGearsApplication.class, args);
-		System.out.println("Running");
+		System.out.println("Running Main Project");
 	}
 
 }
