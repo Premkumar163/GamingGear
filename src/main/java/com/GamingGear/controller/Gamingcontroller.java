@@ -1,6 +1,9 @@
 package com.GamingGear.controller;
 
+import java.util.Map;
+
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import com.GamingGear.dto.GoogleLoginRequest;
@@ -32,12 +35,13 @@ public class Gamingcontroller {
         return authService.login(req);
     }
     
-    @PostMapping("/google")
-    public String googleLogin(@RequestBody GoogleLoginRequest req) {
-		return googleAuthService.loginWithGoogle(req.getIdToken());
-		
-	}
+//    @PostMapping("/google")
+//    public String googleLogin(@RequestBody GoogleLoginRequest req) {
+//		return googleAuthService.loginWithGoogle(req.getIdToken());
+//		
+//	}
     
+ 
     @GetMapping("/ping")
     public String ping() {
         return "PING OK";
