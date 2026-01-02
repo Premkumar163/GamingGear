@@ -35,11 +35,11 @@ public class Gamingcontroller {
         return authService.login(req);
     }
     
-    @PostMapping("/google")
-    public String googleLogin(@RequestBody GoogleLoginRequest req) {
-		return googleAuthService.loginWithGoogle(req.getIdToken());
-		
-	}
+//    @PostMapping("/google")
+//    public String googleLogin(@RequestBody GoogleLoginRequest req) {
+//		return googleAuthService.loginWithGoogle(req.getIdToken());
+//		
+//	}
     
  
     @GetMapping("/ping")
