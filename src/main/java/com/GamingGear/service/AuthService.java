@@ -1,9 +1,5 @@
 package com.GamingGear.service;
 
-import javax.management.RuntimeErrorException;
-
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.autoconfigure.security.oauth2.resource.OAuth2ResourceServerProperties.Jwt;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
@@ -19,20 +15,16 @@ import lombok.RequiredArgsConstructor;
 @RequiredArgsConstructor
 public class AuthService {
 
-	 @Autowired
-     GamingRepository gamingRepository;
-    @Autowired
-	 PasswordEncoder passwordEncoder;
-    
-    @Autowired
-    JwtUtil jwtUtil;
+    private final GamingRepository gamingRepository;
+    private final PasswordEncoder passwordEncoder;
+    private final JwtUtil jwtUtil;
 
+    // REGISTER
 //    public String register(RegisterRequst req) {
-//    	
-//    	if(gamingRepository.existsByEmail(req.getEmail())) {
-//    		return "Email already registered";
-//    	}
-//                
+//
+//        if (gamingRepository.existsByEmail(req.getEmail())) {
+//            return "Email already registered";
+//        }
 //
 //        Forminputs forminputs = Forminputs.builder()
 //                .username(req.getUsername())
@@ -43,9 +35,10 @@ public class AuthService {
 //
 //        gamingRepository.save(forminputs);
 //
-//        return "Register successful";
+//        return "Registered Successfully";
 //    }
-    
+
+    // LOGIN
     public String login(LoginRequest req) {
 
         Forminputs forminputs = gamingRepository.findByEmail(req.getEmail())
@@ -57,6 +50,4 @@ public class AuthService {
 
         return jwtUtil.generateToken(forminputs.getEmail());
     }
-
-    
 }

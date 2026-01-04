@@ -1,25 +1,17 @@
 //package com.GamingGear.repository;
 //
-//import java.util.Optional;
-//
 //import org.springframework.data.jpa.repository.JpaRepository;
+//import java.util.Optional;
 //
 //import com.GamingGear.model.Forminputs;
 //
 //public interface GamingRepository extends JpaRepository<Forminputs, Long> {
 //
-//	 Optional<Forminputs> findByEmailOrMobilenoOrUsername(
-//	            String email,
-//	            String mobileno,
-//	            String username
-//	    );
-//	 
-//	  Optional<Forminputs> findByEmail(String email);
+//    boolean existsByEmail(String email);
 //
-//	boolean existsByEmail(String email);
+//    Optional<Forminputs> findByEmail(String email);
+//    Object findByEmailOrMobilenoOrUsername(String identifier, String identifier2, String identifier3);
 //}
-
-
 
 
 package com.GamingGear.repository;

@@ -41,7 +41,7 @@ public class Gamingcontroller {
 //		
 //	}
     
- 
+     
     @GetMapping("/ping")
     public String ping() {
         return "PING OK";
